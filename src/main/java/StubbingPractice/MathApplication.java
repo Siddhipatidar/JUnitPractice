@@ -1,4 +1,4 @@
-package MockitoPractice;
+package StubbingPractice;
 
 public class MathApplication {
     private CalculatorService calculatorService;
@@ -10,5 +10,6 @@ public class MathApplication {
     public int addNumbers(int a, int b) {
         return calculatorService.Add(a, b);
     }
+    public int divideNumbers(int a,int b){ return calculatorService.divide(a,b); }
 }
 

@@ -1,5 +1,7 @@
 package BasicOperations;
 
+import java.sql.Connection;
+
 public class MathOperations {
     public int add(int a, int b) {
         return a + b;
@@ -32,4 +34,5 @@ public class MathOperations {
     public void throwArithmeticException() {
         int result = 1 / 0; // Will throw ArithmeticException
     }
+
 }

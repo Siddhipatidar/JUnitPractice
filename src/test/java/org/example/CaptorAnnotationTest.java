@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import CaptorAnnotationPractice.CaptorAnnotation;
 import CaptorAnnotationPractice.MathRepository;
+import StubbingPractice.CalculatorService;
+import StubbingPractice.MathApplication;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.*;
@@ -15,6 +17,12 @@ public class CaptorAnnotationTest {
 
     @InjectMocks
     private CaptorAnnotation service;
+
+    @Mock
+    private CalculatorService calculatorService;
+
+    @InjectMocks
+    private MathApplication mathApp;
 
     @Captor
     private ArgumentCaptor<Integer> captor; // Captures arguments
@@ -35,4 +43,15 @@ public class CaptorAnnotationTest {
         assertEquals(12, captor.getValue());
     }
 
+    @Test
+    void testArgumentCaptor() {
+        when(calculatorService.Add(anyInt(), anyInt())).thenReturn(10);
+
+        mathApp.addNumbers(5, 3);
+
+        verify(calculatorService).Add(captor.capture(), captor.capture());
+
+        assertEquals(5, captor.getAllValues().get(0));
+        assertEquals(3, captor.getAllValues().get(1));
+    }
 }
