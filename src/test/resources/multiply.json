@@ -1,0 +1,7 @@
+[
+  { "a": 1, "b": 2, "expected": 2 },
+  { "a": 3, "b": 5, "expected": 15 },
+  { "a": 0, "b": 10, "expected": 0 },
+  { "a": -2, "b": 4, "expected": -8 },
+  { "a": 7, "b": 0, "expected": 0 }
+]
